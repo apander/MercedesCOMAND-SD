@@ -6,7 +6,7 @@ import shutil
 from operator import itemgetter
 
 '''
-Script to create a playlist file for the Komand system to oraganise
+Script to create a playlist file for the Comand system to oraganise
 and play tracks from a memory card
 
 FILE FORMAT EXAMPLE
@@ -67,20 +67,6 @@ def copy_tracks(src_dir, drive_letter, dest_dir):
       shutil.rmtree(drive_letter + dest_dir)
       shutil.copytree(src_dir, drive_letter + "\\" + dest_dir)
 
-'''
-#Main Program
-testfolder=["C:\\MP3 Test\\Cassius\\Addicted To Bass 2011","C:\\MP3 Test\\Cassius\\Ministry of Sound - Clubbers Guide"]
-drive_letter="D:\\"
-
-for d in testfolder:
-   tracklist=[]
-   pls_name=str(d).rsplit('\\', 1)[1] + ".pls"
-   dest_dir=str(d).rsplit('\\', 1)[1]
-   load_album(d, dest_dir)
-   tracklist=order_album(tracklist)
-   write_playlist(tracklist, drive_letter, pls_name)
-   copy_tracks(d, drive_letter, dest_dir)
-'''
 def main(drive, dirs):
    drive=drive + ":\\"
    for d in dirs:
